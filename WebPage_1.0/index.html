@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Gestión</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet@2.5.1/dist/esri-leaflet.css" />
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@2.5.1/dist/esri-leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-measure/dist/leaflet-measure.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-measure/dist/leaflet-measure.css"/>
     <script defer src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -18,7 +20,7 @@
             <div class="search-altitude-bar">
                 <div class="search-bar">
                     <input type="text" id="search-field" placeholder="Buscar...">
-                    <button id="send-button">Enviar</button>
+                    <button id="send-button"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="altitude-checkbox">
                     <input type="checkbox" id="altitude-toggle">
@@ -33,12 +35,17 @@
                 <option value="option1">Filtro 1</option>
                 <option value="option2">Filtro 2</option>
             </select>
-            <button id="execute-button">Ejecutar</button>
+            <button id="execute-button"><i class="fas fa-arrow-right"></i></button>
             <div id="chart-container">
-                <img src="images/graph.png">
+                <p>[Datos de la API]</p>
+            </div>
+            <div id="polygon-data">
+                <p>Área: </p>
+                <p>Perímetro: </p>
             </div>
         </div>
         <aside class="sidebar">
+            <button id="toggle-menu" class="toggle-menu"><i class="fas fa-bars"></i></button>
             <div class="user-icon" title="Admin">
                 <span>Admin <i class="fas fa-caret-down"></i></span>
                 <div class="user-options">

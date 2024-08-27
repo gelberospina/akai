@@ -5,7 +5,8 @@ body {
     display: flex;
     height: 100vh;
     background-color: #263d52;
-    color: #3492FD;
+    color: #9FB4C7;
+    font-size: 12px;
 }
 
 .container {
@@ -20,8 +21,12 @@ body {
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     border-left: 1px solid #2a333d;
+    transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 5%;
 }
 
 .sidebar ul {
@@ -31,7 +36,6 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .sidebar ul li {
@@ -41,17 +45,25 @@ body {
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #2a333d;
+    transition: padding 0.3s;
+}
+
+.sidebar.collapsed ul li {
+    padding: 10px 0;
 }
 
 .sidebar ul li img {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+}
+
+.sidebar.collapsed ul li img {
+    margin-right: 0;
 }
 
 .sidebar ul li:hover {
@@ -130,11 +142,10 @@ body {
     padding: 5px;
     border-radius: 5px;
     margin-right: 10px;
-    margin-left: 45px;
 }
 
 .search-bar input {
-    width: 200px;
+    width: 150px;
     padding: 5px;
     border: none;
     border-radius: 5px;
@@ -171,34 +182,63 @@ body {
     margin-bottom: 10px;
 }
 
-.filters input{
-    margin: 10px 0;
-    padding: 10px;
+.filters input, .filters select, .filters button {
+    margin: 5px 0;
+    padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #333;
-    color: #3492FD;
-    width: 92%;
+    color: #9FB4C7;
+    font-size: 12px;
 }
 
-.filters select, .filters button {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #333;
-    color: #3492FD;
-    width: 100%;
+.filters input {
+    width: 40%;
+}
+
+.filters select {
+    width: 40%;
+}
+
+.filters button {
+    width: 15%;
+    margin-left: auto;
 }
 
 #chart-container {
     height: 200px;
     background-color: #333;
     border-radius: 5px;
-    margin-top: 170px;
+    margin-top: 10px;
+    padding: 10px;
+    color: #9FB4C7;
 }
 
-#chart-container img{
+#polygon-data {
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    color: #9FB4C7;
+}
 
-    width: 312px;
+.toggle-menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.toggle-menu:hover {
+    background-color: #FF7F00;
+}
+
+.leaflet-left {
+    left: 0;
+    margin-top: 200px;
 }

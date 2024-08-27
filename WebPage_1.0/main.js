@@ -8,10 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         'Topográfico': L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
         }),
-        'Satelital': L.tileLayer('https://{s}.sat.owm.io/sql/{z}/{x}/{y}?appid={apiKey}', {
-            attribution: 'Map data &copy; <a href="https://openweathermap.org">OpenWeatherMap</a>',
-            apiKey: 'TU_API_KEY'
-        })
+        'Satelital': L.esri.basemapLayer('Imagery')
     };
 
     baseLayers['OpenStreetMap'].addTo(map);
@@ -19,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     L.control.layers(baseLayers).addTo(map);
 
     const measureControl = new L.Control.Measure({
-        position: 'topleft',
+        position: 'bottomleft',
         primaryLengthUnit: 'kilometers',
         secondaryLengthUnit: 'meters',
         primaryAreaUnit: 'hectares',
@@ -71,7 +68,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (altitudeMarker) {
             map.removeLayer(altitudeMarker);
         }
-        fetch(`https://api.opentopodata.org/v1/test-dataset?locations=${e.latlng.lat},${e.latlng.lng}`)
+        fetch(`https://api.open-elevation.com/api/v1/lookup?locations=${e.latlng.lat},${e.latlng.lng}`)
             .then(response => response.json())
             .then(data => {
                 if (data.results && data.results[0]) {
@@ -79,10 +76,54 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         .addTo(map)
                         .bindPopup(`Altitud: ${data.results[0].elevation} m`)
                         .openPopup();
+                    
+                    // Mostrar en el cuadro de información
+                    document.getElementById('chart-container').innerHTML = `
+                        <p>Altitud: ${data.results[0].elevation} m</p>
+                    `;
                 }
+            });
+    }
+
+    function fetchWeatherData(lat, lon) {
+        const apiKey = 'TU_API_KEY';
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
+            .then(response => response.json())
+            .then(data => {
+                const temperature = data.main.temp;
+                const windSpeed = data.wind.speed;
+                const cloudiness = data.clouds.all;
+
+                // Agregar datos al cuadro de información de la API
+                document.getElementById('chart-container').innerHTML += `
+                    <p>Temperatura: ${temperature} °C</p>
+                    <p>Velocidad del Viento: ${windSpeed} m/s</p>
+                    <p>Nubosidad: ${cloudiness} %</p>
+                `;
             });
     }
 
     searchButton.addEventListener('click', searchLocation);
     altitudeToggle.addEventListener('change', toggleAltitude);
+
+    map.on('measurefinish', function(evt) {
+        const results = evt.results;
+        const area = results.area;
+        const perimeter = results.length;
+
+        document.getElementById('polygon-data').innerHTML = `
+            <p>Área: ${(area / 10000).toFixed(2)} ha</p>
+            <p>Perímetro: ${(perimeter / 1000).toFixed(2)} km</p>
+        `;
+    });
+
+    // Botón para ocultar/mostrar menú
+    const toggleMenuButton = document.getElementById('toggle-menu');
+    toggleMenuButton.addEventListener('click', () => {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('collapsed');
+    });
+
+    // Obtener datos de la API para la ubicación inicial
+    fetchWeatherData(3.4516, -76.5320);
 });
