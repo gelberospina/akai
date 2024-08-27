@@ -135,7 +135,7 @@ body {
     z-index: 1000;
 }
 
-.search-bar, .altitude-checkbox {
+.search-bar, .capaPe-buttons {
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.9);
@@ -165,10 +165,6 @@ body {
     background-color: #FF7F00;
 }
 
-.altitude-checkbox label {
-    margin-left: 5px;
-}
-
 .filters {
     width: 28%;
     padding: 20px;
@@ -176,69 +172,55 @@ body {
     display: flex;
     flex-direction: column;
     border-right: 1px solid #2a333d;
+    background-color: #212930;
 }
 
 .filters h2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .filters input, .filters select, .filters button {
-    margin: 5px 0;
-    padding: 5px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #2a333d;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #333;
-    color: #9FB4C7;
-    font-size: 12px;
-}
-
-.filters input {
-    width: 40%;
-}
-
-.filters select {
-    width: 40%;
+    background-color: #2a333d;
+    color: white;
 }
 
 .filters button {
-    width: 15%;
-    margin-left: auto;
-}
-
-#chart-container {
-    height: 200px;
-    background-color: #333;
-    border-radius: 5px;
-    margin-top: 10px;
-    padding: 10px;
-    color: #9FB4C7;
-}
-
-#polygon-data {
-    background-color: #333;
-    border-radius: 5px;
-    margin-top: 10px;
-    padding: 10px;
-    color: #9FB4C7;
-}
-
-.toggle-menu {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     background-color: #FFA500;
-    color: white;
-    border: none;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
 }
 
-.toggle-menu:hover {
+.filters button:hover {
     background-color: #FF7F00;
 }
 
-.leaflet-left {
-    left: 0;
-    margin-top: 200px;
+#data-container p {
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #263d52;
+    border-radius: 5px;
+    border: 1px solid #2a333d;
+}
+
+.toggle-menu {
+    border: none;
+    background-color: #212930;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: block;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.toggle-menu:hover {
+    background-color: #1e1d1d;
+}
+
+.leaflet-control-zoom {
+    top: 100px !important;
 }
