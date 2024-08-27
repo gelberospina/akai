@@ -1,0 +1,204 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #263d52;
+    color: #3492FD;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 12%;
+    background-color: #263d52;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 1px solid #2a333d;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar ul li {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #212930;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #2a333d;
+}
+
+.sidebar ul li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.sidebar ul li:hover {
+    background-color: #1e1d1d;
+}
+
+.user-icon {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #212930;
+    border: 1px solid #2a333d;
+}
+
+.user-icon span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon:hover {
+    background-color: #1e1d1d;
+}
+
+.user-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1e1d1d;
+    border: 1px solid #2a333d;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.user-options ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.user-options ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user-options ul li:hover {
+    background-color: #2a333d;
+}
+
+.user-icon:hover .user-options {
+    display: block;
+}
+
+.map {
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+.search-altitude-bar {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.search-bar, .altitude-checkbox {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 45px;
+}
+
+.search-bar input {
+    width: 200px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar button {
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.search-bar button:hover {
+    background-color: #FF7F00;
+}
+
+.altitude-checkbox label {
+    margin-left: 5px;
+}
+
+.filters {
+    width: 28%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #2a333d;
+}
+
+.filters h2 {
+    margin-bottom: 10px;
+}
+
+.filters input{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #3492FD;
+    width: 92%;
+}
+
+.filters select, .filters button {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #3492FD;
+    width: 100%;
+}
+
+#chart-container {
+    height: 200px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 170px;
+}
+
+#chart-container img{
+
+    width: 312px;
+}

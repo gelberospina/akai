@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Gestión</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-measure/dist/leaflet-measure.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-measure/dist/leaflet-measure.css"/>
+    <script defer src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="map" class="map">
+            <div class="search-altitude-bar">
+                <div class="search-bar">
+                    <input type="text" id="search-field" placeholder="Buscar...">
+                    <button id="send-button">Enviar</button>
+                </div>
+                <div class="altitude-checkbox">
+                    <input type="checkbox" id="altitude-toggle">
+                    <label for="altitude-toggle">Mostrar Altitud</label>
+                </div>
+            </div>
+        </div>
+        <div class="filters">
+            <h2>Vista Global</h2>
+            <input type="text" id="search-field-2" placeholder="Buscar...">
+            <select id="filter-dropdown-2">
+                <option value="option1">Filtro 1</option>
+                <option value="option2">Filtro 2</option>
+            </select>
+            <button id="execute-button">Ejecutar</button>
+            <div id="chart-container">
+                <img src="images/graph.png">
+            </div>
+        </div>
+        <aside class="sidebar">
+            <div class="user-icon" title="Admin">
+                <span>Admin <i class="fas fa-caret-down"></i></span>
+                <div class="user-options">
+                    <ul>
+                        <li>Manejar Cuenta</li>
+                        <li>Mejorar Cuenta</li>
+                        <li>Cerrar Sesión</li>
+                    </ul>
+                </div>
+            </div>
+            <ul>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/843/843208.png" alt="Temporada"> Temporada</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/786/786437.png" alt="Iniciar"> Iniciar</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/3050/3050125.png" alt="Monitoreo"> Monitoreo</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Clima"> Clima</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/853/853308.png" alt="Mapas UV"> Mapas UV</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/3063/3063363.png" alt="Gestor de Datos"> Gestor de Datos</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/3063/3063363.png" alt="Gestor de Campos"> Gestor de Campos</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/2972/2972146.png" alt="Resumen"> Resumen</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/3111/3111338.png" alt="Cuenta"> Cuenta</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Contacto"> Contacto</li>
+            </ul>
+        </aside>
+    </div>
+</body>
+</html>
